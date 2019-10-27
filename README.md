@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Basic command for selenoid</title>
-   </head>	
    <body>
       <h1>Basic command for selenoid</h1>
       <p>.\cm.exe selenoid-ui status</p>
