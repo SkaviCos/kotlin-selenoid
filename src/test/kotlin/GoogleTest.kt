@@ -6,8 +6,8 @@ import com.codeborne.selenide.ElementsCollection
 import com.codeborne.selenide.Selenide.open
 import com.codeborne.selenide.Selenide.`$`
 import com.codeborne.selenide.Selenide.`$$`
-//import com.codeborne.selenide.Selenide.element
-//import com.codeborne.selenide.Selenide.elements
+import com.codeborne.selenide.Selenide.element
+import com.codeborne.selenide.Selenide.elements
 import com.codeborne.selenide.SelenideElement
 import com.codeborne.selenide.WebDriverRunner
 //import org.junit.Before
@@ -30,9 +30,9 @@ class GoogleTest {
     @BeforeAll
     fun setUp() {
 //        Configuration.headless = false
-//        Configuration.remote = "http://localhost:4444/wd/hub"
-//        Configuration.driverManagerEnabled = true
-//        Configuration.holdBrowserOpen = true
+        Configuration.remote = "http://localhost:4444/wd/hub"
+        Configuration.driverManagerEnabled = true
+        Configuration.holdBrowserOpen = true
         val browser = DesiredCapabilities()
         browser.browserName = "chrome"
         browser.version = "77.0"
@@ -48,33 +48,43 @@ class GoogleTest {
     }
 
 
-    @Test
-    fun duckDuck() {
-        open("http://duckduckgo.com/")
-        `$`(By.name("q")).setValue("selenide").pressEnter()
-        `$$`("span.st").shouldHave(sizeGreaterThan(3))
-        `$`("span.st").shouldHave(text("concise ui tests in Java"))
-    }
-
+//    @Test
+//    fun duckDuck() {
+//        open("http://duckduckgo.com/")
+//        `$`(By.name("q")).setValue("selenide").pressEnter()
+//        `$$`("span.st").shouldHave(sizeGreaterThan(3))
+//        `$`("span.st").shouldHave(text("concise ui tests in Java"))
+//    }
+//
 //    @Test
 //    fun usingDollarsWithBackticks() {
-//        open("https://google.com/ncr")
+//        open("https://google.com/")
 //        `$`(By.name("q")).setValue("selenide").pressEnter()
 //        `$$`("span.st").shouldHave(size(0))
 //        `$`("span.st").shouldHave(text("concise ui tests in Java"))
 //    }
-
+//
 //    @Test
 //    fun notUsingDollars() {
-//        open("https://google.com/ncr")
+//        open("https://google.com/")
 //        element(By.name("q")).setValue("selenide").pressEnter()
-//        elements(By.cssSelector("span.st")).shouldHave(size(989))
+//        element(By.linkText("q")).setValue("selenide").pressEnter()
+//        elements(By.cssSelector("span.st")).shouldHave(size(9))
 //        element(By.cssSelector("span.st")).shouldHave(text("concise ui tests in Java"))
 //    }
 
+    @Test
+    fun instagram() {
+        open("https://www.instagram.com")
+//        element(By.name("q")).setValue("selenide").pressEnter()
+        element(By.linkText("Поиск")).setValue("semenanion").pressEnter()
+//        elements(By.cssSelector("span.st")).shouldHave(size(9))
+//        element(By.cssSelector("span.st")).shouldHave(text("concise ui tests in Java"))
+    }
+
 //    @Test
 //    fun usingAliases() {
-//        open("https://google.com/ncr")
+//        open("https://google.com/")
 //        get("[name=q]").setValue("selenide").pressEnter()
 //        all("span.st").shouldHave(size(9))
 //        get("span.st").shouldHave(text("concise ui tests in Java"))
