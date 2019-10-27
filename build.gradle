@@ -16,8 +16,11 @@ repositories {
 dependencies {
   testCompile 'org.jetbrains.kotlin:kotlin-stdlib:1.3.41'
   testCompile("org.junit.jupiter:junit-jupiter:5.5.0")
-  testCompile 'com.codeborne:selenide:5.3.1'
-  compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
+  testCompile 'com.codeborne:selenide:5.4.1'
+  compile group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '3.14.0'
+//  testCompile group: 'junit', name: 'junit', version: '4.12'
+
+//  compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
 }
 
 task libs(type: Sync) {
@@ -30,9 +33,4 @@ compileKotlin.dependsOn libs
 
 test {
   useJUnitPlatform()
-  systemProperties = [
-    'file.encoding'    : 'UTF-8',
-    'selenide.headless': 'true',
-    'BUILD_URL'        : System.getenv()['BUILD_URL'],
-  ]
 }
